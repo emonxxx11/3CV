@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Last Stage — Panel Link</title>
+  <style>
+    :root{
+      --bg1: #030305;
+      --bg2: #0b0b0f;
+      --accent: #7afcff;
+      --accent-2: #7b61ff;
+    }
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial}
+    body{
+      background: radial-gradient(1200px 600px at 10% 20%, rgba(123,97,255,0.08), transparent),
+                  radial-gradient(1000px 500px at 90% 80%, rgba(122,252,255,0.04), transparent),
+                  linear-gradient(180deg,var(--bg1),var(--bg2));
+      display:flex;align-items:center;justify-content:center;min-height:100vh;color:white;
+      -webkit-font-smoothing:antialiased;
+    }
+    .wrap{max-width:1200px;padding:48px; text-align:center}
+
+    h1{
+      margin:0 0 28px 0;
+      font-size:clamp(28px,8vw,96px);
+      line-height:0.95;
+      font-weight:900;
+      letter-spacing:0.02em;
+      text-transform:uppercase;
+      color:transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,0.06);
+      background: linear-gradient(90deg,var(--accent),var(--accent-2));
+      -webkit-background-clip:text;
+      background-clip:text;
+      text-shadow: 0 8px 30px rgba(0,0,0,0.7), 0 0 30px rgba(123,97,255,0.05);
+    }
+
+    .btn{
+      display:inline-block;padding:20px 38px;border-radius:14px;font-weight:800;text-decoration:none;
+      font-size:18px;border:0;cursor:pointer;transition:transform .14s ease,box-shadow .14s ease;
+      background:linear-gradient(90deg, rgba(122,252,255,0.06), rgba(123,97,255,0.06));
+      color:var(--accent);backdrop-filter: blur(6px);
+      box-shadow: 0 6px 30px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+    .btn:active{transform:translateY(1px) scale(.997)}
+    .btn:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(123,97,255,0.08)}
+
+    .noise{position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,0.01) 1px, transparent 1px);background-size:3px 3px;opacity:0.03}
+
+    @media (max-width:520px){
+      .wrap{padding:28px}
+      .btn{width:100%;padding:18px 20px;border-radius:12px}
+    }
+  </style>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <main class="wrap" role="main">
+    <h1>YOU ARE IN THE LAST STAGE<br>YOU PANEL LINK IS ALMOST DONE !</h1>
+
+    <!-- Button opens the exact link the user provided -->
+    <a id="openLink" class="btn" href="https://vplink.in/eHfzD" target="_blank" rel="noopener noreferrer">
+      Open Panel Link
+    </a>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded',()=>{
+      const btn = document.getElementById('openLink');
+      btn.focus({preventScroll:true});
+      btn.animate([
+        { transform: 'scale(1)', boxShadow: '0 6px 30px rgba(0,0,0,0.6)' },
+        { transform: 'scale(1.02)', boxShadow: '0 18px 60px rgba(123,97,255,0.06)' },
+        { transform: 'scale(1)', boxShadow: '0 6px 30px rgba(0,0,0,0.6)' }
+      ],{ duration:700, easing:'ease-out' });
+    });
+  </script>
+</body>
+</html>
+
+
+
